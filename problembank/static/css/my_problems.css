@@ -1,0 +1,165 @@
+/* My Problems Page */
+
+.container {
+    width: 90%;
+    margin: 40px auto;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+/* Table Styling */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+
+thead {
+    background: #2563eb;
+    color: white;
+}
+
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-size: 16px;
+}
+
+
+td {
+    padding: 14px 15px;
+    border-bottom: 1px solid #ddd;
+    color: #444;
+    font-size: 15px;
+}
+
+
+/* Table Row */
+
+tbody tr {
+    transition: 0.3s;
+}
+
+
+tbody tr:hover {
+    background: #f1f5ff;
+}
+
+
+/* Difficulty Badge */
+
+td:nth-child(3) {
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+
+/* Reward */
+
+td:nth-child(4) {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+
+/* Deadline */
+
+td:nth-child(5) {
+    color: #dc2626;
+}
+
+/* View */
+.view-btn {
+
+    background: #2563eb;
+
+    color: white;
+
+    padding: 8px 16px;
+
+    border-radius: 6px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+.edit-btn:hover {
+
+    background: #1d4ed8;
+
+}
+
+/* delete */
+.delete-btn{
+
+    background:#dc2626;
+
+    color:white;
+
+    padding:8px 16px;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+    margin-left:8px;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+}
+/* Empty Message */
+
+td[colspan="5"] {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+    font-size: 18px;
+}
+
+
+/* Responsive */
+
+@media(max-width:768px) {
+
+    .container {
+        width: 95%;
+        padding: 20px;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 700px;
+    }
+
+    .container h2 {
+        font-size: 24px;
+    }
+
+}

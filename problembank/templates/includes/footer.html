@@ -1,0 +1,79 @@
+{% load static %}
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-left">
+
+            <img src="{% static 'images/logo.png' %}"
+                 alt="PBMS Logo">
+
+            <div>
+
+                <h3>PBMS</h3>
+
+                <p>
+                    Problem Bank Management System
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="footer-center">
+
+            <a href="{% url 'student_dashboard' %}">
+
+                Home
+
+            </a>
+
+            <a href="{% url 'all_problems' %}">
+
+                Problems
+
+            </a>
+
+            <a href="{% url 'my_submissions' %}">
+
+                My Submissions
+
+            </a>
+
+        </div>
+
+        <div class="footer-right">
+
+            <a href="#">
+
+                <i class="fa-brands fa-github"></i>
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-brands fa-linkedin"></i>
+
+            </a>
+
+            <a href="#">
+
+                <i class="fa-solid fa-envelope"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <p class="copyright">
+
+        © 2026 PBMS • Developed by
+        <strong>{{ request.user.username }}</strong>
+
+    </p>
+
+</footer>

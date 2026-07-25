@@ -1,0 +1,96 @@
+{% load static %}
+
+<nav class="navbar">
+
+    <!-- Logo -->
+
+    <div class="nav-left">
+
+        <a href="{% if request.user.is_authenticated %}{% if request.user.user_type == 'student' %}{% url 'student_dashboard' %}{% else %}{% url 'company_dashboard' %}{% endif %}{% else %}#{% endif %}">
+
+            <img src="{% static 'images/logo.png' %}"
+                 class="logo"
+                 alt="PBMS Logo">
+
+        </a>
+
+        <h2>PBMS</h2>
+
+    </div>
+
+    <!-- Right -->
+
+    <div class="nav-right">
+
+        <!-- Search -->
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                placeholder="Search Problems...">
+
+        </div>
+
+        <!-- Notification -->
+
+        <a href="#"
+           class="notification">
+
+            <i class="fa-regular fa-bell"></i>
+
+        </a>
+
+        <!-- Profile -->
+
+        <div class="profile">
+
+            {% if request.user.is_authenticated %}
+
+                {% if request.user.user_type == "student" %}
+
+                    {% if request.user.studentprofile.profile_photo %}
+
+                        <img src="{{ request.user.studentprofile.profile_photo.url }}"
+                             alt="Profile">
+
+                    {% else %}
+
+                        <img src="{% static 'images/avatar.png' %}"
+                             alt="Profile">
+
+                    {% endif %}
+
+                {% else %}
+
+                    <img src="{% static 'images/avatar.png' %}"
+                         alt="Profile">
+
+                {% endif %}
+
+                <span>
+
+                    {{ request.user.username }}
+
+                </span>
+
+            {% else %}
+
+                <img src="{% static 'images/avatar.png' %}"
+                     alt="Profile">
+
+                <span>
+
+                    Guest
+
+                </span>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</nav>

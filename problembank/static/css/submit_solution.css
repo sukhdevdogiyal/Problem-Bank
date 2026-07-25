@@ -1,0 +1,233 @@
+/* ===========================
+   SUBMIT SOLUTION PAGE
+=========================== */
+
+.submit-container {
+
+    max-width: 900px;
+
+    margin: 40px auto;
+
+    padding: 20px;
+
+}
+
+.submit-card {
+
+    background: #ffffff;
+
+    border-radius: 15px;
+
+    padding: 35px;
+
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .08);
+
+}
+
+.submit-card h2 {
+
+    text-align: center;
+
+    margin-bottom: 10px;
+
+    color: #222;
+
+    font-size: 30px;
+
+}
+
+.problem-title {
+
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+
+    font-size: 16px;
+
+}
+
+form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+
+}
+
+.form-group {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+.form-group label {
+
+    margin-bottom: 8px;
+
+    font-weight: 600;
+
+    color: #333;
+
+}
+
+.form-group input,
+
+.form-group textarea {
+
+    padding: 12px;
+
+    border: 1px solid #dcdcdc;
+
+    border-radius: 8px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    transition: .3s;
+
+}
+
+.form-group input:focus,
+
+.form-group textarea:focus {
+
+    border-color: #2563eb;
+
+    box-shadow: 0 0 8px rgba(37, 99, 235, .2);
+
+}
+
+textarea {
+
+    resize: vertical;
+
+    min-height: 140px;
+
+}
+
+input[type="file"] {
+
+    padding: 10px;
+
+    background: #f8fafc;
+
+}
+
+button {
+
+    margin-top: 10px;
+
+    background: #2563eb;
+
+    color: white;
+
+    border: none;
+
+    padding: 14px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    font-size: 17px;
+
+    font-weight: 600;
+
+    transition: .3s;
+
+}
+
+button:hover {
+
+    background: #1d4ed8;
+
+}
+
+@media(max-width:768px) {
+
+    .submit-container {
+
+        margin: 20px;
+
+    }
+
+    .submit-card {
+
+        padding: 25px;
+
+    }
+
+    .submit-card h2 {
+
+        font-size: 26px;
+
+    }
+
+}
+
+.alert{
+
+    padding:12px;
+
+    margin-bottom:20px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+}
+
+/* Success */
+
+.alert.success{
+
+    background:#d1fae5;
+
+    color:#065f46;
+
+    border:1px solid #10b981;
+
+}
+
+/* Error */
+
+.alert.error{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    border:1px solid #ef4444;
+
+}
+
+/* Warning */
+
+.alert.warning{
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    border:1px solid #f59e0b;
+
+}
+
+/* Info */
+
+.alert.info{
+
+    background:#dbeafe;
+
+    color:#1e3a8a;
+
+    border:1px solid #3b82f6;
+
+}

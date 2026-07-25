@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Company Submissions
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/company_submissions.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    {% if messages %}
+
+    {% for message in messages %}
+
+    <div class="alert {{ message.tags }}">
+
+        {{ message }}
+
+    </div>
+
+    {% endfor %}
+
+    {% endif %}
+
+    <div class="page-header">
+
+        <h2>
+
+            {{ problem.title }}
+
+        </h2>
+
+        <p>
+
+            Student Submissions
+
+        </p>
+
+    </div>
+
+    {% if submissions %}
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>
+
+                    Student
+
+                </th>
+
+                <th>
+
+                    Submission No.
+
+                </th>
+
+                <th>
+
+                    Status
+
+                </th>
+
+                <th>
+
+                    Submitted At
+
+                </th>
+
+                <th>
+
+                    Action
+
+                </th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for submission in submissions %}
+
+            <tr>
+
+                <td>
+
+                    {{ submission.student.username }}
+
+                </td>
+
+                <td>
+
+                    #{{ submission.submission_number }}
+
+                </td>
+
+                <td>
+
+                    <span class="status {{ submission.status }}">
+
+                        {{ submission.status|title }}
+
+                    </span>
+
+                </td>
+
+                <td>
+
+                    {{ submission.submitted_at|date:"d M Y" }}
+
+                </td>
+
+                <td>
+
+                    <a href="{% url 'company_submission_detail' submission.id %}" class="view-btn">
+
+                        View
+
+                    </a>
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+    <div class="empty-box">
+
+        <h3>
+
+            No Submissions Yet
+
+        </h3>
+
+        <p>
+
+            Students have not submitted any solution.
+
+        </p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,229 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Company Dashboard
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/company_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+    <!-- Header -->
+
+    <div class="dashboard-header">
+
+        <div>
+
+            <h1>Welcome, {{ company.username }} 👋</h1>
+
+            <p>Manage your problems, review submissions and track your company activity.</p>
+
+        </div>
+
+        <a href="{% url 'create_problem' %}" class="create-btn">
+
+            <i class="fa-solid fa-circle-plus"></i>
+
+            Create Problem
+
+        </a>
+
+    </div>
+
+    <!-- Statistics -->
+
+    <div class="stats-container">
+
+        <div class="stats-card blue">
+
+            <i class="fa-solid fa-list"></i>
+
+            <h2>{{ total_problems }}</h2>
+
+            <p>Total Problems</p>
+
+        </div>
+
+        <div class="stats-card green">
+
+            <i class="fa-solid fa-lock-open"></i>
+
+            <h2>{{ open_problems }}</h2>
+
+            <p>Open Problems</p>
+
+        </div>
+
+        <div class="stats-card red">
+
+            <i class="fa-solid fa-lock"></i>
+
+            <h2>{{ closed_problems }}</h2>
+
+            <p>Closed Problems</p>
+
+        </div>
+
+        <div class="stats-card orange">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            <h2>{{ total_submissions }}</h2>
+
+            <p>Total Submissions</p>
+
+        </div>
+
+    </div>
+
+    <!-- Recent Problems -->
+
+    <div class="content-row">
+
+        <div class="table-card">
+
+            <div class="card-header">
+
+                <h2>Recently Created Problems</h2>
+
+                <a href="{% url 'my_problems' %}" class="view-all-btn">
+
+                    View All
+
+                </a>
+
+            </div>
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Problem</th>
+
+                        <th>Status</th>
+
+                        <th>Deadline</th>
+
+                        <th>Action</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for problem in recent_problems %}
+
+                    <tr>
+
+                        <td>{{ problem.title }}</td>
+
+                        <td>
+
+                            <span class="badge {{ problem.status|lower }}">
+
+                                {{ problem.status|title }}
+
+                            </span>
+
+                        </td>
+
+                        <td>{{ problem.deadline|date:"d M Y" }}</td>
+
+                        <td>
+
+                            <a href="{% url 'edit_problem' problem.id %}"
+
+                               class="view-btn">
+
+                                Manage
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="4">
+
+                            No Problems Created Yet
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- Company Card -->
+
+        <div class="profile-card">
+
+            {% if company.companyprofile.company_logo %}
+
+                <img src="{{ company.companyprofile.company_logo.url }}">
+
+            {% else %}
+
+                <img src="{% static 'images/logo.png' %}">
+
+            {% endif %}
+
+            <h3>{{ company.companyprofile.company_name }}</h3>
+
+            <p>{{ company.email }}</p>
+
+            <hr>
+
+            <div class="profile-info">
+
+                <p>
+
+                    <strong>Industry</strong><br>
+
+                    {{ company.companyprofile.industry|default:"Not Added" }}
+
+                </p>
+
+                <p>
+
+                    <strong>Location</strong><br>
+
+                    {{ company.companyprofile.location|default:"Not Added" }}
+
+                </p>
+
+            </div>
+
+            <a href="#" class="edit-btn">
+
+                <i class="fa-solid fa-building"></i>
+
+                Company Profile
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

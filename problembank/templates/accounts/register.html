@@ -1,0 +1,262 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PBMS | User Registration</title>
+
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="register-card">
+
+            <!-- Logo -->
+            <div class="logo">
+
+                <h1>PBMS</h1>
+
+                <p>Problem Bank Management System</p>
+
+            </div>
+
+            <!-- Heading -->
+
+            <div class="heading">
+
+                <h2>User Registration</h2>
+
+                <p>Join the Problem Bank!</p>
+
+            </div>
+
+            <!-- Django Messages -->
+
+            {% if messages %}
+
+                {% for message in messages %}
+
+                    <div class="alert {{ message.tags }}">
+
+                        {{ message }}
+
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+            <!-- Registration Form -->
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <!-- Username -->
+
+                <div class="input-group">
+
+                    <label>Username</label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-user"></i>
+
+                        <input
+                            type="text"
+                            name="username"
+                            placeholder="Enter Username"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Email -->
+
+                <div class="input-group">
+
+                    <label>Email</label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-envelope"></i>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter Email"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Password -->
+
+                <div class="input-group">
+
+                    <label>Password</label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter Password"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Confirm Password -->
+
+                <div class="input-group">
+
+                    <label>Confirm Password</label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-lock"></i>
+
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            placeholder="Confirm Password"
+                            required>
+
+                    </div>
+
+                </div>
+
+                <!-- Role -->
+
+                <div class="input-group">
+
+                    <label>Account Role</label>
+
+                    <div class="input-box">
+
+                        <i class="fa-solid fa-users"></i>
+
+                        <select name="user_type" required>
+
+                            <option value="">Select Role</option>
+
+                            <option value="student">Student</option>
+
+                            <option value="company">Company</option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+
+                <button class="register-btn" type="submit">
+
+                    Register
+
+                </button>
+
+            </form>
+
+            <!-- Login Link -->
+
+            <div class="bottom-text">
+
+                Already have an account?
+
+                <a href="{% url 'login' %}">
+
+                    Login
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
+<!-- <!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+</head>
+
+<body>
+
+    <h2>Student / Company Registration</h2>
+
+    <form method="POST">
+
+        {% csrf_token %}
+        {% if messages %}
+
+        {% for message in messages %}
+
+        <p class="{{ message.tags }}">
+            {{ message }}
+        </p>
+
+        {% endfor %}
+
+        {% endif %}
+
+        <label>Username</label><br>
+        <input type="text" name="username"><br><br>
+
+        <label>Email</label><br>
+        <input type="email" name="email"><br><br>
+
+        <label>Password</label><br>
+        <input type="password" name="password"><br><br>
+
+        <label>Confirm Password</label><br>
+        <input type="password" name="confirm_password"><br><br>
+
+        <label>User Type</label><br>
+        <select name="user_type">
+            <option value="student">Student</option>
+            <option value="company">Company</option>
+        </select>
+
+        <br><br>
+
+        <button type="submit">Register</button>
+
+    </form>
+<p>
+    Already have an account?
+
+    <a href="{% url 'login' %}">
+        Login
+    </a>
+</p>
+</body>
+
+</html> -->

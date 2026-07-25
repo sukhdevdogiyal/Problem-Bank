@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Submission Detail
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/submission_detail.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="detail-container">
+
+    <div class="detail-card">
+
+        <h2>{{ submission.problem.title }}</h2>
+
+        <hr>
+
+        <p><strong>Company :</strong> {{ submission.problem.company.username }}</p>
+
+        <p><strong>Submission No :</strong> #{{ submission.submission_number }}</p>
+
+        <p><strong>Status :</strong>
+
+            <span class="status {{ submission.status|lower }}">
+                {{ submission.status|title }}
+            </span>
+
+        </p>
+
+        <p><strong>Score :</strong>
+
+            {% if submission.score %}
+                {{ submission.score }}
+            {% else %}
+                -
+            {% endif %}
+
+        </p>
+
+        <p><strong>Submitted :</strong>
+
+            {{ submission.submitted_at|date:"d M Y H:i" }}
+
+        </p>
+
+        <hr>
+
+        <h3>Solution Description</h3>
+
+        <p>
+
+            {{ submission.solution_text }}
+
+        </p>
+
+        <hr>
+
+        <p>
+
+            <strong>GitHub :</strong>
+
+            {% if submission.github_url %}
+
+                <a href="{{ submission.github_url }}" target="_blank">
+
+                    Open Repository
+
+                </a>
+
+            {% else %}
+
+                -
+
+            {% endif %}
+
+        </p>
+
+        <p>
+
+            <strong>Demo :</strong>
+
+            {% if submission.demo_url %}
+
+                <a href="{{ submission.demo_url }}" target="_blank">
+
+                    Open Demo
+
+                </a>
+
+            {% else %}
+
+                -
+
+            {% endif %}
+
+        </p>
+
+        <p>
+
+            <strong>Solution File :</strong>
+
+            {% if submission.solution_file %}
+
+                <a href="{{ submission.solution_file.url }}" target="_blank">
+
+                    Download File
+
+                </a>
+
+            {% else %}
+
+                -
+
+            {% endif %}
+
+        </p>
+
+        <hr>
+
+        <h3>Company Feedback</h3>
+
+        <p>
+
+            {% if submission.feedback %}
+
+                {{ submission.feedback }}
+
+            {% else %}
+
+                No feedback yet.
+
+            {% endif %}
+
+        </p>
+
+        <a href="{% url 'my_submissions' %}" class="back-btn">
+
+            Back
+
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

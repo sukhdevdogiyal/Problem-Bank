@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Submit Solution
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/submit_solution.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="submit-container">
+
+    <div class="submit-card">
+        <h2>
+            Submit Solution
+        </h2>
+        
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert {{ message.tags }}">
+            {{ message }}
+        </div>
+        {% endfor %}
+        {% endif %}
+
+        <p class="problem-title">
+            <strong>Problem :</strong>
+            {{ problem.title }}
+        </p>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label>Solution Description</label>
+                <textarea name="solution_text" rows="6" placeholder="Explain your solution..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>GitHub Repository URL</label>
+                <input type="url" name="github_url" placeholder="https://github.com/username/project">
+            </div>
+            <div class="form-group">
+                <label>Demo URL</label>
+                <input type="url" name="demo_url" placeholder="https://youtube.com/...">
+            </div>
+            <div class="form-group">
+                <label>Upload Solution File</label>
+                <input type="file" name="solution_file">
+            </div>
+            <button type="submit">
+                Submit Solution
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}

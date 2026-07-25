@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My Problems
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/my_problems.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>My Problems</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Difficulty</th>
+                <th>Reward</th>
+                <th>Deadline</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for problem in problems %}
+            <tr>
+                <td>{{ problem.title }}</td>
+                <td>{{ problem.category }}</td>
+                <td>{{ problem.difficulty }}</td>
+                <td>₹{{ problem.reward }}</td>
+                <td>{{ problem.deadline }}</td>
+                <td>
+                    <a href="{% url 'problem_detail' problem.id %}" class="view-btn">View</a>
+                </td>
+            </tr>
+
+            {% empty %}
+
+            <tr>
+                <td colspan="5">
+                    No Problems Found
+                </td>
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+{% endblock %}

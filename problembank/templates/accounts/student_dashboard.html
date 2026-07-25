@@ -1,0 +1,285 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Student Dashboard
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/student_dashboard.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard">
+
+
+<!-- Dashboard Header -->
+
+<div class="dashboard-header">
+
+    <div>
+
+        <h1>Welcome, {{ student.username }} 👋</h1>
+
+        <p>Explore problems, submit solutions and improve your ranking.</p>
+
+    </div>
+
+</div>
+
+<!-- Statistics -->
+
+<div class="stats-container">
+
+    <div class="stats-card blue">
+
+        <i class="fa-solid fa-lightbulb"></i>
+
+        <h2>{{ total_problems }}</h2>
+
+        <p>Total Problems</p>
+
+    </div>
+
+    <div class="stats-card green">
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+        <h2>{{ submitted_count }}</h2>
+
+        <p>Solutions Submitted</p>
+
+    </div>
+
+    <div class="stats-card orange">
+
+        <i class="fa-solid fa-circle-check"></i>
+
+        <h2>{{ accepted_count }}</h2>
+
+        <p>Accepted Solutions</p>
+
+    </div>
+
+    <div class="stats-card red">
+
+        <i class="fa-solid fa-ranking-star"></i>
+
+        <h2>--</h2>
+
+        <p>Leaderboard (Soon)</p>
+
+    </div>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="content-row">
+
+    <!-- Recent Problems -->
+
+    <div class="table-card">
+
+        <div class="card-header">
+
+            <h2>Recent Problems</h2>
+
+            <a href="{% url 'all_problems' %}" class="view-all-btn">
+
+                View All
+
+            </a>
+
+        </div>
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>Problem</th>
+
+                    <th>Difficulty</th>
+
+                    <th>Reward</th>
+
+                    <th>Deadline</th>
+
+                    <th>Action</th>
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for problem in recent_problems %}
+
+                <tr>
+
+                    <td>
+
+                        {{ problem.title }}
+
+                    </td>
+
+                    <td>
+
+                        <span class="badge {{ problem.difficulty|lower }}">
+
+                            {{ problem.difficulty|title }}
+
+                        </span>
+
+                    </td>
+
+                    <td>
+
+                        {% if problem.reward %}
+
+                            ₹{{ problem.reward }}
+
+                        {% else %}
+
+                            --
+
+                        {% endif %}
+
+                    </td>
+
+                    <td>
+
+                        {{ problem.deadline|date:"d M Y" }}
+
+                    </td>
+
+                    <td>
+
+                        <a href="{% url 'problem_detail' problem.id %}"
+
+                           class="view-btn">
+
+                            View
+
+                        </a>
+
+                    </td>
+
+                </tr>
+
+                {% empty %}
+
+                <tr>
+
+                    <td colspan="5">
+
+                        No Problems Available
+
+                    </td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <!-- Profile Card -->
+
+    <div class="profile-card">
+
+        {% if student.studentprofile.profile_photo %}
+
+            <img src="{{ student.studentprofile.profile_photo.url }}"
+                 alt="Profile">
+
+        {% else %}
+
+            <img src="{% static 'images/avatar.png' %}"
+                 alt="Profile">
+
+        {% endif %}
+
+        <h3>{{ student.username }}</h3>
+
+        <p>{{ student.email }}</p>
+
+        <hr>
+
+        <div class="profile-info">
+
+            <p>
+
+                <strong>College</strong><br>
+
+                {% if student.studentprofile.college_name %}
+
+                    {{ student.studentprofile.college_name }}
+
+                {% else %}
+
+                    Not Added
+
+                {% endif %}
+
+            </p>
+
+            <p>
+
+                <strong>Skills</strong><br>
+
+                {% if student.studentprofile.skills %}
+
+                    {{ student.studentprofile.skills }}
+
+                {% else %}
+
+                    Not Added
+
+                {% endif %}
+
+            </p>
+
+            <p>
+
+                <strong>Location</strong><br>
+
+                {% if student.studentprofile.location %}
+
+                    {{ student.studentprofile.location }}
+
+                {% else %}
+
+                    Not Added
+
+                {% endif %}
+
+            </p>
+
+        </div>
+
+        <a href="#"
+
+           class="edit-btn">
+
+            <i class="fa-solid fa-user-pen"></i>
+
+            Edit Profile
+
+        </a>
+
+    </div>
+
+</div>
+
+
+</div>
+
+{% endblock %}

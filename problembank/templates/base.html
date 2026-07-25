@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>
+
+        {% block title %}
+
+        PBMS
+
+        {% endblock %}
+
+    </title>
+
+    <!-- Favicon -->
+
+    <link rel="icon"
+          type="image/x-icon"
+          href="{% static 'images/favicon.ico' %}">
+          
+    <!-- Main CSS -->
+
+    <link rel="stylesheet"
+          href="{% static 'css/style.css' %}">
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Font Awesome -->
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- Page CSS -->
+
+    {% block css %}
+
+    {% endblock %}
+
+</head>
+
+<body>
+
+    <!-- =========================
+            NAVBAR
+    ========================== -->
+
+    {% include "includes/navbar.html" %}
+
+    <!-- =========================
+            SIDEBAR
+    ========================== -->
+
+    {% if request.user.is_authenticated %}
+
+        {% if request.user.user_type == "student" %}
+
+            {% include "includes/student_sidebar.html" %}
+
+        {% elif request.user.user_type == "company" %}
+
+            {% include "includes/company_sidebar.html" %}
+
+        {% endif %}
+
+    {% endif %}
+
+    <!-- =========================
+            MAIN CONTENT
+    ========================== -->
+
+    <main class="main-content">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </main>
+
+    <!-- =========================
+            FOOTER
+    ========================== -->
+
+    {% if not request.user.is_authenticated %}
+
+        {% include "includes/footer.html" %}
+
+    {% endif %}
+
+    <!-- =========================
+            PAGE JS
+    ========================== -->
+
+    {% block js %}
+
+    {% endblock %}
+
+</body>
+
+</html>

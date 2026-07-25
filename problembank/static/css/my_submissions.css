@@ -1,0 +1,179 @@
+.container{
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+    background:#fff;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.container h2{
+
+    margin-bottom:25px;
+
+    text-align:center;
+
+    color:#222;
+
+}
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+table thead{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+table th,
+
+table td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:1px solid #eee;
+
+}
+
+table tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+.status{
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    color:#fff;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.pending{
+
+    background:#f59e0b;
+
+}
+
+.reviewing{
+
+    background:#3b82f6;
+
+}
+
+.accepted{
+
+    background:#10b981;
+
+}
+
+.rejected{
+
+    background:#ef4444;
+
+}
+
+.view-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:8px 14px;
+
+    border-radius:6px;
+
+    text-decoration:none;
+
+}
+
+.view-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.empty-box{
+
+    text-align:center;
+
+    padding:60px 20px;
+
+}
+
+.empty-box h3{
+
+    margin-bottom:10px;
+
+}
+
+.empty-box p{
+
+    color:#666;
+
+    margin-bottom:25px;
+
+}
+
+.browse-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+    padding:12px 20px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+}
+
+.browse-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+@media(max-width:768px){
+
+    .container{
+
+        margin:20px;
+
+        padding:20px;
+
+        overflow-x:auto;
+
+    }
+
+    table{
+
+        min-width:900px;
+
+    }
+
+}

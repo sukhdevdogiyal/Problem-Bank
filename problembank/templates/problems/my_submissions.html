@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+My Submissions
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/my_submissions.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>My Submissions</h2>
+
+    {% if submissions %}
+
+    <table>
+
+        <thead>
+
+            <tr>
+
+                <th>Problem</th>
+
+                <th>Company</th>
+
+                <th>Submission No.</th>
+
+                <th>Status</th>
+
+                <th>Score</th>
+
+                <th>Submitted At</th>
+
+                <th>Action</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for submission in submissions %}
+
+            <tr>
+                <td>
+                    {{ submission.problem.title }}
+                </td>
+                <td>
+                    {{ submission.problem.company.username }}
+                </td>
+                <td>
+                    #{{ submission.submission_number }}
+                </td>
+                <td>
+                    <span class="status {{ submission.status|lower }}">
+                        {{ submission.status|title }}
+                    </span>
+                </td>
+                <td>
+                    {% if submission.score %}
+                        {{ submission.score }}
+                    {% else %}
+                        -
+                    {% endif %}
+                </td>
+                <td>
+                    {{ submission.submitted_at|date:"d M Y" }}
+                </td>
+                <td>
+                    <a href="{% url 'submission_detail' submission.id %}" class="view-btn">View</a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+    {% else %}
+
+        <div class="empty-box">
+
+            <h3>No submissions found.</h3>
+
+            <p>
+
+                Solve a problem and submit your first solution.
+
+            </p>
+
+            <a href="{% url 'all_problems' %}" class="browse-btn">
+
+                Browse Problems
+
+            </a>
+
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

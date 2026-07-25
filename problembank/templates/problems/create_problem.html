@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Create Problem
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/create_problem.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Create New Problem</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form action="{% url 'create_problem' %}"
+          method="POST"
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <!-- Problem Title -->
+
+        <div>
+
+            <label for="title">Problem Title</label>
+
+            <input
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Enter Problem Title"
+                required>
+
+        </div>
+
+        <!-- Description -->
+
+        <div>
+
+            <label for="description">Description</label>
+
+            <textarea
+                id="description"
+                name="description"
+                rows="6"
+                placeholder="Enter Problem Description"
+                required></textarea>
+
+        </div>
+
+        <!-- Category -->
+
+        <div>
+
+            <label for="category">Category</label>
+
+            <input
+                type="text"
+                id="category"
+                name="category"
+                placeholder="Example: AI, ML, Web Development"
+                required>
+
+        </div>
+
+        <!-- Difficulty -->
+
+        <div>
+
+            <label for="difficulty">Difficulty</label>
+
+            <select
+                id="difficulty"
+                name="difficulty"
+                required>
+
+                <option value="">Select Difficulty</option>
+
+                <option value="easy">Easy</option>
+
+                <option value="medium">Medium</option>
+
+                <option value="hard">Hard</option>
+
+            </select>
+
+        </div>
+
+        <!-- Reward -->
+
+        <div>
+
+            <label for="reward">Reward (₹)</label>
+
+            <input
+                type="number"
+                id="reward"
+                name="reward"
+                placeholder="5000">
+
+        </div>
+
+        <!-- Deadline -->
+
+        <div>
+
+            <label for="deadline">Deadline</label>
+
+            <input
+                type="date"
+                id="deadline"
+                name="deadline"
+                required>
+
+        </div>
+
+        <!-- Required Skills -->
+
+        <div>
+
+            <label for="required_skills">Required Skills</label>
+
+            <input
+                type="text"
+                id="required_skills"
+                name="required_skills"
+                placeholder="Python, Django, SQL">
+
+        </div>
+
+        <!-- Problem Image -->
+
+        <div>
+
+            <label for="problem_image">Problem Image</label>
+
+            <input
+                type="file"
+                id="problem_image"
+                name="problem_image"
+                accept="image/*">
+
+        </div>
+
+        <!-- Submit Button -->
+
+        <div>
+
+            <button type="submit">
+
+                Create Problem
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

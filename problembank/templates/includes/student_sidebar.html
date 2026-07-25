@@ -1,0 +1,102 @@
+{% load static %}
+
+<div class="sidebar">
+
+    <div class="sidebar-logo">
+
+        <img src="{% static 'images/logo.png' %}"
+             alt="PBMS Logo">
+
+        <h2>PBMS</h2>
+
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <li>
+
+            <a href="{% url 'student_dashboard' %}">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'all_problems' %}">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                <span>Problems</span>
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'my_submissions' %}">
+
+                <i class="fa-solid fa-file-arrow-up"></i>
+
+                <span>My Submissions</span>
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fa-solid fa-trophy"></i>
+
+                <span>Leaderboard</span>
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fa-solid fa-user"></i>
+
+                <span>My Profile</span>
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="#">
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+        </li>
+
+        <li>
+
+            <a href="{% url 'logout' %}">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</div>

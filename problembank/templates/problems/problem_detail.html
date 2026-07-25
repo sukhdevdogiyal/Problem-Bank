@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ problem.title }}
+{% endblock %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/problem_detail.css' %}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="detail-container">
+
+    <div class="detail-card">
+
+        <div class="image-section">
+            {% if problem.problem_image %}
+            <img src="{{ problem.problem_image.url }}" alt="{{ problem.title }}">
+            {% else %}
+            <img src="{% static 'images/default_problem.png' %}" alt="Problem">
+            {% endif %}
+        </div>
+
+        <div class="content-section">
+
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {{ message.tags }}">
+                {{ message }}
+            </div>
+            {% endfor %}
+            {% endif %}
+
+            <div class="difficulty {{ problem.difficulty|lower }}">
+                {{ problem.difficulty|title }}
+            </div>
+            <h1>{{ problem.title }}</h1>
+            <p>
+                <strong>Category :</strong>
+                {{ problem.category }}
+            </p>
+            <p>
+                <strong>Company :</strong>
+                {{ problem.company.username }}
+            </p>
+            <p>
+                <strong>Reward :</strong>
+                ₹{{ problem.reward }}
+            </p>
+            <p>
+                <strong>Deadline :</strong>
+                {{ problem.deadline }}
+            </p>
+            <p>
+                <strong>Status :</strong>
+                {{ problem.status|title }}
+            </p>
+            <p>
+                <strong>Required Skills :</strong>
+                {{ problem.required_skills }}
+            </p>
+            <hr>
+            <h3> Problem Description</h3>
+            <p>
+                {{ problem.description }}
+            </p>
+
+            <div class="button-group">
+                
+                {% if request.user.user_type == "student" %}
+                <a href="{% url 'all_problems' %}" class="back-btn">Back</a>
+                <a href="{% url 'submit_solution' problem.id %}" class="submit-btn">Submit Solution</a>
+                
+                {% elif problem.company == request.user %}
+                <a href="{% url 'my_problems' %}" class="back-btn">Back</a>
+                <a href="{% url 'edit_problem' problem.id %}" class="edit-btn">Edit Problem</a>
+                <a href="{% url 'delete_problem' problem.id %}" class="delete-btn">Delete Problem</a>
+                <a href="{% url 'company_submissions' problem.id %}" class="view-btn">View Submissions</a>
+                {% endif %}
+                
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

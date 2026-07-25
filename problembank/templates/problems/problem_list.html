@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Available Problems
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/problems.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="problem-page">
+
+    <div class="problem-header">
+
+        <h1>Available Problems</h1>
+
+        <p>Solve real-world company challenges</p>
+
+    </div>
+
+    <!-- Search & Filter UI (Backend later) -->
+
+    <div class="search-filter">
+
+        <input
+            type="text"
+            placeholder="Search Problems...">
+
+        <select>
+
+            <option>All Difficulty</option>
+
+            <option>Easy</option>
+
+            <option>Medium</option>
+
+            <option>Hard</option>
+
+        </select>
+
+        <select>
+
+            <option>All Categories</option>
+
+            <option>AI</option>
+
+            <option>Web Development</option>
+
+            <option>Cyber Security</option>
+
+            <option>Data Science</option>
+
+        </select>
+
+        <button>
+
+            Search
+
+        </button>
+
+    </div>
+
+    <div class="problem-grid">
+
+        {% for problem in problems %}
+
+        <div class="problem-card">
+
+            <!-- Difficulty Badge -->
+
+            <div class="difficulty {{ problem.difficulty|lower }}">
+
+                {{ problem.difficulty|title }}
+
+            </div>
+
+            <!-- Image -->
+
+            {% if problem.problem_image %}
+
+                <img
+                    src="{{ problem.problem_image.url }}"
+                    alt="{{ problem.title }}">
+
+            {% else %}
+
+                <img
+                    src="{% static 'images/default_problem.png' %}"
+                    alt="Problem">
+
+            {% endif %}
+
+            <!-- Title -->
+
+            <h2>
+
+                {{ problem.title }}
+
+            </h2>
+
+            <!-- Description -->
+
+            <p>
+
+                {{ problem.description|truncatewords:20 }}
+
+            </p>
+
+            <!-- Category -->
+
+            <p>
+
+                <strong>Category :</strong>
+
+                {{ problem.category }}
+
+            </p>
+
+            <!-- Skills -->
+
+            <p>
+
+                <strong>Skills :</strong>
+
+                {{ problem.required_skills }}
+
+            </p>
+
+            <!-- Deadline -->
+
+            <p>
+
+                <strong>Deadline :</strong>
+
+                {{ problem.deadline }}
+
+            </p>
+
+            <div class="problem-footer">
+
+                <span>
+
+                    ₹{{ problem.reward }}
+
+                </span>
+
+                <a href="{% url 'problem_detail' problem.id %}">
+
+                    View Details
+
+                </a>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="no-problem">
+
+            <img
+                src="{% static 'images/no-data.png' %}"
+                width="180">
+
+            <h2>
+
+                No Open Problems Available
+
+            </h2>
+
+            <p>
+
+                Please check back later.
+
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+{% endblock %}

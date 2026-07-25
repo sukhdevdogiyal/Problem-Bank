@@ -1,0 +1,116 @@
+{% load static %}
+
+<div class="sidebar">
+
+    <div class="sidebar-logo">
+
+        <img src="{% static 'images/logo.png' %}"
+             alt="PBMS Logo">
+
+        <h2>PBMS</h2>
+
+    </div>
+
+    <ul class="sidebar-menu">
+
+        <!-- Dashboard -->
+
+        <li>
+
+            <a href="{% url 'company_dashboard' %}">
+
+                <i class="fa-solid fa-house"></i>
+
+                <span>Dashboard</span>
+
+            </a>
+
+        </li>
+
+        <!-- Create Problem -->
+
+        <li>
+
+            <a href="{% url 'create_problem' %}">
+
+                <i class="fa-solid fa-circle-plus"></i>
+
+                <span>Create Problem</span>
+
+            </a>
+
+        </li>
+
+        <!-- My Problems -->
+
+        <li>
+
+            <a href="{% url 'my_problems' %}">
+
+                <i class="fa-solid fa-list"></i>
+
+                <span>My Problems</span>
+
+            </a>
+
+        </li>
+
+        <!-- All Submissions -->
+
+        <li>
+
+            <a href="#">
+
+                <i class="fa-solid fa-file-circle-check"></i>
+
+                <span>All Submissions</span>
+
+            </a>
+
+        </li>
+
+        <!-- Company Profile -->
+
+        <li>
+
+            <a href="#">
+
+                <i class="fa-solid fa-building"></i>
+
+                <span>Company Profile</span>
+
+            </a>
+
+        </li>
+
+        <!-- Settings -->
+
+        <li>
+
+            <a href="#">
+
+                <i class="fa-solid fa-gear"></i>
+
+                <span>Settings</span>
+
+            </a>
+
+        </li>
+
+        <!-- Logout -->
+
+        <li>
+
+            <a href="{% url 'logout' %}">
+
+                <i class="fa-solid fa-right-from-bracket"></i>
+
+                <span>Logout</span>
+
+            </a>
+
+        </li>
+
+    </ul>
+
+</div>

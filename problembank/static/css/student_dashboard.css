@@ -1,0 +1,529 @@
+/* =========================
+   STUDENT DASHBOARD
+========================= */
+
+.dashboard{
+
+    width:95%;
+
+    max-width:1400px;
+
+    margin:30px auto;
+
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.dashboard-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.dashboard-header h1{
+
+    font-size:34px;
+
+    color:#222;
+
+    margin-bottom:8px;
+
+    font-weight:700;
+
+}
+
+.dashboard-header p{
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+/* =========================
+   STATS
+========================= */
+
+.stats-container{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:25px;
+
+    margin-bottom:35px;
+
+}
+
+.stats-card{
+
+    padding:30px;
+
+    color:white;
+
+    border-radius:18px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.stats-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.stats-card i{
+
+    font-size:40px;
+
+    margin-bottom:18px;
+
+}
+
+.stats-card h2{
+
+    font-size:36px;
+
+    margin-bottom:8px;
+
+}
+
+.stats-card p{
+
+    font-size:15px;
+
+}
+
+.blue{
+
+    background:#2563eb;
+
+}
+
+.green{
+
+    background:#16a34a;
+
+}
+
+.orange{
+
+    background:#ea580c;
+
+}
+
+.red{
+
+    background:#dc2626;
+
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.content-row{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:25px;
+
+}
+
+/* =========================
+   TABLE CARD
+========================= */
+
+.table-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:25px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+}
+
+.card-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+
+}
+
+.card-header h2{
+
+    color:#222;
+
+}
+
+.view-all-btn{
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+    font-size:14px;
+
+}
+
+.view-all-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+}
+
+thead{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+thead th{
+
+    padding:16px;
+
+    text-align:center;
+
+    font-weight:600;
+
+}
+
+tbody td{
+
+    padding:15px;
+
+    text-align:center;
+
+    border-bottom:1px solid #eee;
+
+}
+
+tbody tr{
+
+    transition:.3s;
+
+}
+
+tbody tr:hover{
+
+    background:#f8fafc;
+
+}
+
+/* =========================
+   BADGES
+========================= */
+
+.badge{
+
+    display:inline-block;
+
+    padding:6px 14px;
+
+    border-radius:20px;
+
+    color:white;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.easy{
+
+    background:#22c55e;
+
+}
+
+.medium{
+
+    background:#f59e0b;
+
+}
+
+.hard{
+
+    background:#ef4444;
+
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.view-btn{
+
+    display:inline-block;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:8px 18px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+    font-size:14px;
+
+    font-weight:500;
+
+}
+
+.view-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* =========================
+   PROFILE CARD
+========================= */
+
+.profile-card{
+
+    background:white;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    text-align:center;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    position:sticky;
+
+    top:95px;
+
+}
+
+.profile-card img{
+
+    width:120px;
+
+    height:120px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:4px solid #2563eb;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+}
+
+.profile-card h3{
+
+    margin-bottom:10px;
+
+    color:#222;
+
+}
+
+.profile-card p{
+
+    color:#666;
+
+    margin-bottom:8px;
+
+}
+
+.profile-card hr{
+
+    margin:20px 0;
+
+    border:none;
+
+    border-top:1px solid #e5e7eb;
+
+}
+
+.profile-info{
+
+    text-align:left;
+
+}
+
+.profile-info p{
+
+    margin-bottom:18px;
+
+    line-height:1.7;
+
+}
+
+.profile-info strong{
+
+    color:#222;
+
+}
+
+.edit-btn{
+
+    display:inline-block;
+
+    width:100%;
+
+    margin-top:15px;
+
+    background:#2563eb;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    transition:.3s;
+
+    font-weight:600;
+
+}
+
+.edit-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+.edit-btn i{
+
+    margin-right:8px;
+
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:992px){
+
+    .stats-container{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+    .content-row{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .profile-card{
+
+        position:static;
+
+    }
+
+}
+
+@media(max-width:768px){
+
+    .stats-container{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .dashboard-header h1{
+
+        font-size:28px;
+
+    }
+
+    .table-card{
+
+        overflow-x:auto;
+
+    }
+
+    table{
+
+        min-width:750px;
+
+    }
+
+}
+
+@media(max-width:500px){
+
+    .profile-card{
+
+        padding:20px;
+
+    }
+
+    .profile-card img{
+
+        width:100px;
+
+        height:100px;
+
+    }
+
+    .card-header{
+
+        flex-direction:column;
+
+        gap:15px;
+
+        align-items:flex-start;
+
+    }
+
+}

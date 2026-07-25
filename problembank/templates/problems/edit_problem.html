@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Edit Problem
+{% endblock %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/create_problem.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+
+    <h2>Edit Problem</h2>
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST"
+          enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        <!-- Problem Title -->
+
+        <div>
+
+            <label>Problem Title</label>
+
+            <input
+                type="text"
+                name="title"
+                value="{{ problem.title }}"
+                required>
+
+        </div>
+
+        <!-- Description -->
+
+        <div>
+
+            <label>Description</label>
+
+            <textarea
+                name="description"
+                rows="6"
+                required>{{ problem.description }}</textarea>
+
+        </div>
+
+        <!-- Category -->
+
+        <div>
+
+            <label>Category</label>
+
+            <input
+                type="text"
+                name="category"
+                value="{{ problem.category }}"
+                required>
+
+        </div>
+
+        <!-- Difficulty -->
+
+        <div>
+
+            <label>Difficulty</label>
+
+            <select name="difficulty" required>
+
+                <option value="easy"
+                    {% if problem.difficulty == "easy" %}
+                        selected
+                    {% endif %}
+                >
+                    Easy
+                </option>
+
+                <option value="medium"
+                    {% if problem.difficulty == "medium" %}
+                        selected
+                    {% endif %}
+                >
+                    Medium
+                </option>
+
+                <option value="hard"
+                    {% if problem.difficulty == "hard" %}
+                        selected
+                    {% endif %}
+                >
+                    Hard
+                </option>
+
+            </select>
+
+        </div>
+
+        <!-- Reward -->
+
+        <div>
+
+            <label>Reward (₹)</label>
+
+            <input
+                type="number"
+                name="reward"
+                value="{{ problem.reward }}">
+
+        </div>
+
+        <!-- Deadline -->
+
+        <div>
+
+            <label>Deadline</label>
+
+            <input
+                type="date"
+                name="deadline"
+                value="{{ problem.deadline|date:'Y-m-d' }}"
+                required>
+
+        </div>
+
+        <!-- Required Skills -->
+
+        <div>
+
+            <label>Required Skills</label>
+
+            <input
+                type="text"
+                name="required_skills"
+                value="{{ problem.required_skills }}">
+
+        </div>
+
+        <!-- Current Image -->
+
+        {% if problem.problem_image %}
+
+        <div>
+
+            <label>Current Image</label>
+
+            <img
+                src="{{ problem.problem_image.url }}"
+                width="250"
+                style="border-radius:10px; margin-top:10px;">
+
+        </div>
+
+        {% endif %}
+
+        <!-- Upload New Image -->
+
+        <div>
+
+            <label>Change Image</label>
+
+            <input
+                type="file"
+                name="problem_image"
+                accept="image/*">
+
+        </div>
+
+        <!-- Submit -->
+
+        <div>
+
+            <button type="submit">
+
+                Update Problem
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

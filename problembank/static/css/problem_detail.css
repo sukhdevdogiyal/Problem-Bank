@@ -1,0 +1,365 @@
+/* ===========================
+   PROBLEM DETAIL PAGE
+=========================== */
+
+.detail-container{
+
+    width:95%;
+
+    max-width:1200px;
+
+    margin:40px auto;
+
+}
+
+.detail-card{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    display:grid;
+
+    grid-template-columns:1fr 1.2fr;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+/* ===========================
+   IMAGE
+=========================== */
+
+.image-section{
+
+    background:#f8fafc;
+
+}
+
+.image-section img{
+
+    width:100%;
+
+    height:100%;
+
+    object-fit:cover;
+
+    min-height:500px;
+
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
+.content-section{
+
+    padding:35px;
+
+}
+
+.content-section h1{
+
+    margin:20px 0;
+
+    color:#222;
+
+    font-size:34px;
+
+}
+
+.content-section h3{
+
+    margin-top:30px;
+
+    margin-bottom:15px;
+
+    color:#2563eb;
+
+}
+
+.content-section p{
+
+    margin:12px 0;
+
+    line-height:1.8;
+
+    color:#555;
+
+    font-size:16px;
+
+}
+
+.content-section strong{
+
+    color:#222;
+
+}
+
+/* ===========================
+   DIFFICULTY
+=========================== */
+
+.difficulty{
+
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:25px;
+
+    color:#fff;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.easy{
+
+    background:#16a34a;
+
+}
+
+.medium{
+
+    background:#f59e0b;
+
+}
+
+.hard{
+
+    background:#dc2626;
+
+}
+
+/* ===========================
+   HR
+=========================== */
+
+hr{
+
+    margin:25px 0;
+
+    border:none;
+
+    border-top:1px solid #ddd;
+
+}
+
+/* ===========================
+   BUTTON GROUP
+=========================== */
+
+.button-group{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+.button-group a{
+
+    text-decoration:none;
+
+    padding:13px 22px;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+/* Back */
+
+.back-btn{
+
+    background:#6b7280;
+
+    color:#fff;
+
+}
+
+.back-btn:hover{
+
+    background:#4b5563;
+
+}
+
+/* Student */
+
+.submit-btn{
+
+    background:#2563eb;
+
+    color:#fff;
+
+}
+
+.submit-btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+/* Company */
+
+.edit-btn{
+
+    background:#f59e0b;
+
+    color:#fff;
+
+}
+
+.edit-btn:hover{
+
+    background:#d97706;
+
+}
+
+.delete-btn{
+
+    background:#dc2626;
+
+    color:#fff;
+
+}
+
+.delete-btn:hover{
+
+    background:#b91c1c;
+
+}
+
+.view-btn{
+
+    background:#10b981;
+
+    color:#fff;
+
+}
+
+.view-btn:hover{
+
+    background:#059669;
+
+}
+
+/* ===========================
+   MESSAGE
+=========================== */
+
+.alert{
+
+    padding:12px;
+
+    margin-bottom:20px;
+
+    border-radius:8px;
+
+    font-weight:600;
+
+}
+
+.alert.success{
+
+    background:#d1fae5;
+
+    color:#065f46;
+
+    border:1px solid #10b981;
+
+}
+
+.alert.error{
+
+    background:#fee2e2;
+
+    color:#991b1b;
+
+    border:1px solid #ef4444;
+
+}
+
+.alert.warning{
+
+    background:#fef3c7;
+
+    color:#92400e;
+
+    border:1px solid #f59e0b;
+
+}
+
+.alert.info{
+
+    background:#dbeafe;
+
+    color:#1e3a8a;
+
+    border:1px solid #3b82f6;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:900px){
+
+    .detail-card{
+
+        grid-template-columns:1fr;
+
+    }
+
+    .image-section img{
+
+        min-height:300px;
+
+    }
+
+    .content-section{
+
+        padding:25px;
+
+    }
+
+    .content-section h1{
+
+        font-size:28px;
+
+    }
+
+}
+
+@media(max-width:600px){
+
+    .button-group{
+
+        flex-direction:column;
+
+    }
+
+    .button-group a{
+
+        width:100%;
+
+        text-align:center;
+
+    }
+
+}
