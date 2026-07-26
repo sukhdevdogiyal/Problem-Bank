@@ -1,76 +1,94 @@
 # Problem Bank
 
-> A Django-based platform that connects **students** with **companies** by enabling organizations to post real-world problems and allowing students to submit innovative solutions.
+> A full-stack Django-based **Problem Bank Management System (PBMS)** that connects **companies** with **students** by enabling organizations to post real-world challenges and allowing students to submit innovative solutions.
 
 <p align="center">
 
 ![Python](https://img.shields.io/badge/Python-3.x-blue?logo=python)
 ![Django](https://img.shields.io/badge/Django-5.x-green?logo=django)
 ![SQLite](https://img.shields.io/badge/Database-SQLite-blue)
-![Bootstrap](https://img.shields.io/badge/Frontend-Bootstrap-purple?logo=bootstrap)
-![Status](https://img.shields.io/badge/Status-Phase%201%20Completed-success)
-![License](https://img.shields.io/badge/License-MIT-orange)
+![Bootstrap](https://img.shields.io/badge/Frontend-Bootstrap-7952B3?logo=bootstrap)
+![Git](https://img.shields.io/badge/Version_Control-Git-F05032?logo=git)
+![GitHub](https://img.shields.io/badge/GitHub-Repository-181717?logo=github)
+![Status](https://img.shields.io/badge/Project-90%25_Complete-brightgreen)
+
 
 </p>
 
 ---
 
-# Overview
+## 📖 Overview
 
-Problem Bank is a web application that bridges the gap between **students** and **companies**.
+**Problem Bank Management System (PBMS)** is a Django-based web application that bridges the gap between **students** and **companies**.
 
-Companies can publish real-world challenges, while students can solve them by submitting their ideas, documents, or code. Companies can review submissions, provide feedback, and select the best solutions.
+Companies can publish real-world challenges, while students can solve them by submitting innovative ideas, documents, or source code. Companies can evaluate submissions, provide feedback, assign scores, and select the best solution.
 
-The platform is designed to encourage practical learning, innovation, and industry collaboration.
+The platform provides separate dashboards for **Students**, **Companies**, and **Administrators**, making the entire workflow simple and efficient.
 
 ---
 
-# Features
+# ✨ Features
 
-## Student
+## 👨‍🎓 Student Module
 
-- Student Registration & Login
-- Student Profile Management
-- Browse Available Problems
-- Search & Filter Problems
-- Submit Solutions
+- Student Registration
+- Student Login & Logout
+- Student Dashboard
+- View Available Problems
+- Problem Details
+- Search Problems
+- Submit Solution
+- Multiple Solution Submission
+- View Submission Details
 - Track Submission Status
 - View Company Feedback
 
-## Company
+---
 
-- Company Registration & Profile
-- Post New Problems
-- Edit/Delete Problems
+## 🏢 Company Module
+
+- Company Registration
+- Company Login & Logout
+- Company Dashboard
+- Create Problem
+- Update Problem
+- Delete Problem
+- View Posted Problems
 - Review Student Submissions
 - Accept / Reject Solutions
+- Assign Scores
 - Provide Feedback
-
-## Admin
-
-- Manage Users
-- Verify Companies
-- Manage Problems
-- Moderate Content
-- Manage Categories
-- Monitor Platform Activities
 
 ---
 
-# Tech Stack
+## 🛡️ Admin Module
+
+- Manage Users
+- Manage Companies
+- Manage Problems
+- Manage Solutions
+- Verify Companies
+- Moderate Platform Content
+
+---
+
+# 🛠️ Tech Stack
 
 | Category | Technology |
 |----------|------------|
-| Backend | Django, Python |
-| Database | SQLite |
+| Backend | Python, Django |
 | Frontend | HTML, CSS, Bootstrap, JavaScript |
+| Database | SQLite |
+| Authentication | Django Authentication |
 | Version Control | Git & GitHub |
 
 ---
 
-# Database Models
+# 🗄️ Database Models
 
-The project currently contains the following models:
+The project is designed using Django ORM.
+
+### Implemented Models
 
 - ✅ CustomUser
 - ✅ StudentProfile
@@ -78,11 +96,27 @@ The project currently contains the following models:
 - ✅ Problem
 - ✅ Solution
 
-Relationships are implemented using the Django ORM.
+---
+
+# 📊 Project Progress
+
+| Module | Progress |
+|---------|----------|
+| Authentication | ✅ 100% |
+| Student Module | 🟢 90% |
+| Company Module | 🟢 90% |
+| Problem Module | ✅ 100% |
+| Submission Module | ✅ 100% |
+| Database Design | ✅ 100% |
+| UI / UX | 🟢 85% |
+
+## Overall Project Completion
+
+**🚀 Approximately 90% Complete**
 
 ---
 
-# Project Structure
+# 📂 Project Structure
 
 ```text
 Problem-Bank/
@@ -97,59 +131,116 @@ Problem-Bank/
 │
 ├── manage.py
 ├── requirements.txt
+├── screenshots/
 ├── README.md
 └── .gitignore
 ```
 
 ---
 
-# Installation
+# 📸 Application Screenshots
 
-### Clone Repository
+## 🔐 Login Page
+
+![Login](screenshots/login.png)
+
+---
+
+## 📝 Register Page
+
+![Register](screenshots/register.png)
+
+---
+
+## 👨‍🎓 Student Dashboard
+
+![Student Dashboard](screenshots/student-dashboard.png)
+
+---
+
+## 🏢 Company Dashboard
+
+![Company Dashboard](screenshots/company-dashboard.png)
+
+---
+
+## 📄 Problem Details
+
+![Problem Details](screenshots/problem-detail.png)
+
+---
+
+## 📤 Submit Solution
+
+![Submit Solution](screenshots/submit-solution.png)
+
+---
+
+## 📋 My Submissions
+
+![My Submissions](screenshots/my-submissions.png)
+
+---
+
+## 🛠️ Company Problem Management
+
+![Company Problems](screenshots/company-problems.png)
+
+---
+
+## ✅ Review Submission
+
+![Review Submission](screenshots/review-submission.png)
+
+---
+
+# ⚙️ Installation
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/sukhdevdogiyal/Problem-Bank.git
 ```
 
-### Go to Project
+## Navigate to Project
 
 ```bash
 cd Problem-Bank
 ```
 
-### Create Virtual Environment
+## Create Virtual Environment
 
 ```bash
 python -m venv myenv
 ```
 
-### Activate Virtual Environment
+## Activate Virtual Environment
 
-Windows
+### Windows
 
 ```bash
 myenv\Scripts\activate
 ```
 
-Linux / Mac
+### Linux / macOS
 
 ```bash
 source myenv/bin/activate
 ```
 
-### Install Dependencies
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Apply Migrations
+## Apply Database Migrations
 
 ```bash
 python manage.py migrate
 ```
 
-### Run Development Server
+## Start Development Server
 
 ```bash
 python manage.py runserver
@@ -163,59 +254,69 @@ http://127.0.0.1:8000/
 
 ---
 
-# Development Progress
-
-| Phase | Status |
-|--------|--------|
-| Phase 1 — Database Design | ✅ Completed |
-| Phase 2 — Authentication | 🚧 In Progress |
-| Phase 3 — Company Module | ⏳ Pending |
-| Phase 4 — Student Module | ⏳ Pending |
-| Phase 5 — Admin Module | ⏳ Pending |
-| Phase 6 — Advanced Features | ⏳ Pending |
-
----
-
-# Current Progress
+# 🚀 Development Roadmap
 
 ## ✅ Completed
 
 - Django Project Setup
 - GitHub Repository Setup
-- Database Design
 - Custom User Model
 - Student Profile Model
 - Company Profile Model
-- Problem Model
-- Solution Model
-
-## 🚧 Currently Working
-
-- Authentication System
-
----
-
-# Future Enhancements
-
-- REST API Integration
-- Email Notifications
-- AI-based Solution Recommendations
-- Payment Gateway Integration
-- Real-time Notifications
-- Company Verification
+- Role-Based Authentication
 - Student Dashboard
-- Analytics Dashboard
-- Certificates
-- Leaderboard
-- Discussion Forum
+- Company Dashboard
+- Problem CRUD
+- Solution Submission
+- Submission Review System
+- Feedback & Score System
+- Database Design
 
 ---
 
-# Contributing
+## 🚧 In Progress
+
+- Student Profile Page
+- Company Profile Page
+- Edit Profile
+- Leaderboard
+- Advanced Search
+- Settings
+
+---
+
+## 📌 Planned Features
+
+- Email Notifications
+- Password Reset
+- Charts & Analytics
+- Landing Page Improvements
+- Contact Page
+- FAQ Page
+- REST API
+- Deployment
+
+---
+
+# 🔮 Future Enhancements
+
+- AI-Based Solution Recommendation
+- Real-Time Notifications
+- Payment Gateway Integration
+- Resume Builder
+- Certificates
+- Discussion Forum
+- Leaderboard
+- Analytics Dashboard
+
+---
+
+# 🤝 Contributing
 
 Contributions are welcome!
 
-1. Fork the repository
+1. Fork this repository
+
 2. Create a feature branch
 
 ```bash
@@ -225,10 +326,10 @@ git checkout -b feature-name
 3. Commit your changes
 
 ```bash
-git commit -m "Add feature"
+git commit -m "Add new feature"
 ```
 
-4. Push your branch
+4. Push to GitHub
 
 ```bash
 git push origin feature-name
@@ -238,18 +339,28 @@ git push origin feature-name
 
 ---
 
-# License
+# 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
 
 ---
 
-# Author
+# 👨‍💻 Author
 
 **Sukhdev Dogiyal**
 
-🎓 B.Tech CSE Student
+🎓 B.Tech Computer Science Engineering
 
-💻 Passionate about Backend Development, Django, and Problem Solving
+💻 Backend Developer | Django Enthusiast | Problem Solver
 
-GitHub: https://github.com/sukhdevdogiyal
+📧 Email: sukhdev951157@gmail.com
+
+🔗 GitHub: https://github.com/sukhdevdogiyal
+
+---
+
+## ⭐ Support
+
+If you found this project useful, please consider giving it a **⭐ Star** on GitHub.
+
+It motivates future development and improvements.
